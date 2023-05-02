@@ -96,9 +96,11 @@ public class Serie {
 		this.DataDeLancamento = DataDeLancamento;
 
 	}
+	
+	//Método para salvar serie no arquivo POO_Series.csv
 
 	public void salvar() {
-	    String nomeArquivo = "serie_" + id_Serie + ".csv";
+	    String nomeArquivo =  "POO_Series.csv";
 	    try (PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivo))) {
 	        String dados = id_Serie + "," + nome + "," + DataDeLancamento;
 	        writer.println(dados);
