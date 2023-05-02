@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/*** - PARTE COMENTADA ESTÁ DESATUALIZADA CONFORME ALTERAÇÕES DO CÓDIGO DOS OUTROS INTEGRANTES DO GRUPO
+
 public class Serie {
 	private String[] GENEROS;
 	private int id_Serie;
@@ -96,6 +98,8 @@ public class Serie {
 		this.DataDeLancamento = DataDeLancamento;
 
 	}
+	
+***/
 	
 	//Método para salvar serie no arquivo POO_Series.csv
 
