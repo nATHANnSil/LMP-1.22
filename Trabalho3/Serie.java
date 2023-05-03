@@ -104,8 +104,8 @@ public class Serie {
 	//Método para salvar serie no arquivo POO_Series.csv
 
 	public void salvar() {
-	    String nomeArquivo =  "POO_Series.csv";
-	    try (PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivo))) {
+	    String nomeArquivo =  "POO_Series.csv"; //recebe o nome do arquivo
+	    try (PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivo))) { //escrever no arquivo 
 	        String dados = id_Serie + "," + nome + "," + DataDeLancamento;
 	        writer.println(dados);
 	    } catch (IOException e) {
@@ -113,7 +113,7 @@ public class Serie {
 	    }
 	}
 
-	// Método para verificar se o ID já está em uso
+	// Método para verificar se o ID já está em uso. Se estiver, não salva
 	private boolean idEmUso(int id) {
 	    File diretorio = new File(".");
 	    File[] arquivos = diretorio.listFiles();
@@ -136,7 +136,7 @@ public class Serie {
 	    return false;
 	}
 
-    // Método para verificar se o nome já está em uso
+    // Método para verificar se o nome já está em uso, se estiver não salva.
 	private boolean nomeEmUso(String nome) {
         File diretorio = new File(".");
         File[] arquivos = diretorio.listFiles();
