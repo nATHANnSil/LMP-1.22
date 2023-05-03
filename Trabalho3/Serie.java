@@ -105,7 +105,7 @@ public class Serie {
 
 	public void salvar() {
 	    String nomeArquivo =  "POO_Series.csv"; //recebe o nome do arquivo
-	    try (PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivo))) { //escrever no arquivo 
+	    try (PrintWriter writer = new PrintWriter(new FileWriter(POO_Series.csv))) { //escrever no arquivo 
 	        String dados = id_Serie + "," + nome + "," + DataDeLancamento;
 	        writer.println(dados);
 	    } catch (IOException e) {
