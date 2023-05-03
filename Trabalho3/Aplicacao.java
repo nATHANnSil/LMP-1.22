@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Aplicacao {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Map<Integer, String> idsEmUso = new HashMap<>(); // Mapa para rastrear IDs em uso
         Serie serie = new Serie();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -33,11 +33,16 @@ public class Aplicacao {
                         String dataLancamento = reader.readLine();
                         serie.setDataDeLancamento(dataLancamento);
 
-                        // Salva a série no arquivo
-                        String nomeArquivo = "serie_" + id + ".csv"; // Nome do arquivo baseado no ID da série
-                        serie.salvar();
+                        // Verifica se o ID já está em uso
+                        if (serie.idEmUso(id)) {
+                            System.out.println("ID já em uso. Série não será salva.");
+                        } else {
+                            // Salva a série no arquivo
+                            String nomeArquivo = "serie_" + id + ".csv"; // Nome do arquivo baseado no ID da série
+                            serie.salvar();
 
-                        System.out.println("Série salva com sucesso!");
+                            System.out.println("Série salva com sucesso!");
+                        }
                     }
                 }
 
