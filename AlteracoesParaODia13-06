@@ -1,0 +1,28 @@
+/// PARA REALIZAR O Os gestores ainda pediram que a plataforma possa, em algum momento, produzir os seguintes relatórios:
+///• Qual cliente assistiu mais mídias, e quantas mídias;
+
+public void gerarRelatorioClienteMaisMidias() {
+   Cliente cliente = new Cliente()
+List<Stream> listaJaVista = cliente.mostrarListaJaVista();
+int numMidias = listaJaVista.size();
+System.out.println("O cliente " + cliente.getNomeDeUsuario() + " assistiu " + numMidias + " mídias.");
+
+}
+
+/// PARA REALIZAR O Os gestores ainda pediram que a plataforma possa, em algum momento, produzir os seguintes relatórios:
+///• Qual cliente tem mais avaliações, e quantas avaliações;
+
+public void gerarRelatorioClienteMaisAvaliado (){
+Cliente cliente = // obtenha a instância do cliente aqui
+int numAvaliacoes = cliente.getNumeroDeAvaliacoes();
+System.out.println("O cliente " + cliente.getNome() + " fez " + numAvaliacoes + " avaliações.");
+}
+
+/// PARA REALIZAR O Os gestores ainda pediram que a plataforma possa, em algum momento, produzir os seguintes relatórios:
+///• Quais são as 10 mídias de melhor avaliação, com pelo menos 100 avaliações, em ordem decrescente;
+
+public void gerarRelatorioMidiasMaisAvaliadas(){
+
+
+
+}
