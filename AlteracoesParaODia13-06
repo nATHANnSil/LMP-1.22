@@ -21,8 +21,37 @@ System.out.println("O cliente " + cliente.getNome() + " fez " + numAvaliacoes + 
 /// PARA REALIZAR O Os gestores ainda pediram que a plataforma possa, em algum momento, produzir os seguintes relatórios:
 ///• Quais são as 10 mídias de melhor avaliação, com pelo menos 100 avaliações, em ordem decrescente;
 
-public void gerarRelatorioMidiasMaisAvaliadas(){
+public List<Stream> gerarRelatorioMidiasMaisAvaliadas(List<Stream> streams) {
+    // Filtrar streams com pelo menos 100 avaliações
+    List<Stream> filteredStreams = streams.stream()
+        .filter(s -> s.getContAvaliacao() >= 100)
+        .collect(Collectors.toList());
 
+    // Classificar streams por avaliação em ordem decrescente
+    filteredStreams.sort((s1, s2) -> Double.compare(s2.getAvaliacao(), s1.getAvaliacao()));
 
-
+    // Retornar os 10 primeiros streams
+    return filteredStreams.stream()
+        .limit(10)
+        .collect(Collectors.toList());
 }
+
+/// PARA REALIZAR O Os gestores ainda pediram que a plataforma possa, em algum momento, produzir os seguintes relatórios:
+///Qual a porcentagem dos clientes com pelo menos 15 avaliações;
+
+public double calcularPorcentagemClientesComPeloMenos15Avaliacoes(List<Cliente> clientes) {
+    // Filtrar clientes com pelo menos 15 avaliações
+    long clientesComPeloMenos15Avaliacoes = clientes.stream()
+        .filter(c -> c.getNumeroDeAvaliacoes() >= 15)
+        .count();
+
+    // Calcular a porcentagem
+    double porcentagem = (double) clientesComPeloMenos15Avaliacoes / clientes.size() * 100;
+
+    return porcentagem;
+}
+
+
+
+
+
