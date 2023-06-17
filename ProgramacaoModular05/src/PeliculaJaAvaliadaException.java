@@ -1,9 +1,10 @@
+package app;
 /**
- * ExceÁ„o: PelÌcula j· avaliada
+ * Exce√ß√£o: Pel√≠cula j√° avaliada
  */
 public class PeliculaJaAvaliadaException extends Exception{
     /**
-     * Esta exceÁ„o È lanÁada caso haja tentativa de avaliar uma pelÌcula cuja j· tenha sido avaliada previamente.
+     * Esta exce√ß√£o √© lan√ßada caso haja tentativa de avaliar uma pel√≠cula cuja j√° tenha sido avaliada previamente.
      * @param mensagem
      */
     public PeliculaJaAvaliadaException(String mensagem){

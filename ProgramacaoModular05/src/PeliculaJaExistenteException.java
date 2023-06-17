@@ -1,12 +1,13 @@
+package app;
 /**
- * ExceÁ„o: PelÌcula j· existente
+ * Exce√ß√£o: Pel√≠cula j√° existente
  */
 public class PeliculaJaExistenteException extends Exception {
     /**
-     * Esta exceÁ„o È lanÁada caso haja uma tentativa de adicionar uma pelÌcula j· existente em uma lista.
+     * Esta exce√ß√£o √© lan√ßada caso haja uma tentativa de adicionar uma pel√≠cula j√° existente em uma lista.
      * @param mensagem
      */
     public PeliculaJaExistenteException(String mensagem){
-        super("A mÌdia j· existe na lista: " + mensagem);
+        super("A m√≠dia j√° existe na lista: " + mensagem);
     }
 }

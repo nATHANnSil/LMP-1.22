@@ -1,3 +1,5 @@
+package app;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -65,8 +67,8 @@ public class PlataformaStreaming {
                 }
             }   
         } catch (NullPointerException e) {
-            // Trata a exceção NullPointerException (login não encontrado no mapa)
-            System.out.println("Login não encontrado.");
+            // Trata a exceÃ§Ã£o NullPointerException (login nÃ£o encontrado no mapa)
+            System.out.println("Login nÃ£o encontrado.");
         }
         
         return false;
@@ -84,7 +86,7 @@ public class PlataformaStreaming {
     }
 
     /**
-     * Adiciona filme ou série no hash da coleção da plataforma
+     * Adiciona filme ou sÃ©rie no hash da coleÃ§Ã£o da plataforma
      * 
      * @param novo
      */
@@ -120,7 +122,7 @@ public class PlataformaStreaming {
     }
 
     /**
-     * Filtra filmes e séries por gênero
+     * Filtra filmes e sÃ©ries por gÃªnero
      * 
      * @param genero
      * @return Stream - result
@@ -134,14 +136,14 @@ public class PlataformaStreaming {
             }
         }
         if (result.size() == 0){
-            throw new StreamNaoEncontradoException("Não foram encontradas midias desse gênero");
+            throw new StreamNaoEncontradoException("NÃ£o foram encontradas midias desse gÃªnero");
         }
 
         return result;
     }
 
     /**
-     * Filtra filmes e séries por idioma
+     * Filtra filmes e sÃ©ries por idioma
      * 
      * @param idioma
      * @return Stream - result
@@ -154,14 +156,14 @@ public class PlataformaStreaming {
             }
         }
         if (result.size() == 0){
-            throw new StreamNaoEncontradoException("Não foram encontradas midias desse idioma");
+            throw new StreamNaoEncontradoException("NÃ£o foram encontradas midias desse idioma");
         }
 
         return result;
     }
 
     /**
-     * Filtra filmes e séries por nome
+     * Filtra filmes e sÃ©ries por nome
      * 
      * @param nome
      * @return Stream - result
@@ -176,17 +178,17 @@ public class PlataformaStreaming {
             }
         }
         if (result == null){
-            throw new StreamNaoEncontradoException("Não foi encontrada uma midia com o nome");
+            throw new StreamNaoEncontradoException("NÃ£o foi encontrada uma midia com o nome");
         }
         return result;
     }
 
     /**
-     * Registra audiência caso o cliente atual assista uma série
+     * Registra audiÃªncia caso o cliente atual assista uma sÃ©rie
      * 
      * @param serieOuFilme
      */
-    public void registrarAudiencia(Stream serieOuFilme) {
+    public void registrarAudiencia(StreamAvaliavel serieOuFilme) {
         this.clienteAtual.registrarAudiencia(serieOuFilme);
         serieOuFilme.registrarAudiencia();
     }
@@ -202,11 +204,11 @@ public class PlataformaStreaming {
     }
 
     /**
-     * Adiciona uma mídia na lista para assistir do cliente logado
+     * Adiciona uma mÃ­dia na lista para assistir do cliente logado
      * @param stream
      * @throws PeliculaJaExistenteException
      */
-    public void adicionarNaListaParaVer(Stream stream) throws PeliculaJaExistenteException {
+    public void adicionarNaListaParaVer(StreamAvaliavel stream) throws PeliculaJaExistenteException {
         this.clienteAtual.adicionarNaListaParaVer(stream);
     }
 
@@ -222,11 +224,17 @@ public class PlataformaStreaming {
     }
 
     /**
-     * Método genério que imprime uma lista de midias
+     * MÃ©todo genÃ©rio que imprime uma lista de midias
      * @param lista
      */
-    public void mostrarLista(List<Stream> lista) {
+    public void mostrarListaStream(List<Stream> lista) {
         for(Stream s : lista) {
+            System.out.println(s);
+        }
+    }
+
+    public void mostrarLista(List<StreamAvaliavel> lista) {
+        for(StreamAvaliavel s : lista) {
             System.out.println(s);
         }
     }
@@ -237,7 +245,7 @@ public class PlataformaStreaming {
      * @return
      * @throws ListaVaziaException
      */
-    public List<Stream> mostrarListaParaAssistir() throws ListaVaziaException {
+    public List<StreamAvaliavel> mostrarListaParaAssistir() throws ListaVaziaException {
         return this.clienteAtual.mostrarListaParaAssistir();
     }
 
@@ -246,7 +254,7 @@ public class PlataformaStreaming {
      * @return
      * @throws ListaVaziaException
      */
-    public List<Stream> mostrarListaJaVista() throws ListaVaziaException{
+    public List<StreamAvaliavel> mostrarListaJaVista() throws ListaVaziaException{
         return this.clienteAtual.mostrarListaJaVista();
     }
 }

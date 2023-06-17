@@ -1,4 +1,8 @@
-public class Filme extends Stream{
+package app;
+
+import java.util.Random;
+
+public class Filme extends StreamAvaliavel{
     private float duracao;
 
     /**
@@ -10,7 +14,7 @@ public class Filme extends Stream{
      * @param dataLancamento
      * @param duracao
      */
-    public Filme(int id, String nome, String genero, String idioma, String dataLancamento, float duracao) {
+    public Filme(int id, String nome, int genero, int idioma, String dataLancamento, float duracao) {
         super(id, nome, genero, idioma, dataLancamento);
         this.duracao = duracao;
     }
@@ -24,6 +28,8 @@ public class Filme extends Stream{
      */
     public Filme(int idFIlme, String nome, String dataDeLancamento, float duracao) {
         super(idFIlme, nome, dataDeLancamento);
+        Random random = new java.util.Random();
+        this.duracao = random.nextFloat() * 1000;
     }
 
     /**
@@ -52,6 +58,6 @@ public class Filme extends Stream{
     @Override
     public String toString() {
         String apresentacao = "Sobre o Filme: \n----------------------------------------------------------------\n";
-        return apresentacao + super.toString() + "\nDuração: " + this.duracao + "\n\n";
+        return apresentacao + super.toString() + "\nDuraÃ§Ã£o: " + this.duracao + "\n\n";
     }
 }

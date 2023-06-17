@@ -1,18 +1,19 @@
+package app;
 /**
  * Classe AvaliacaoStream
  * 
- * Permite armazenar um filme ou serie junto com uma avaliaÁ„o
- * a avaliaÁ„o È realizada pelo usu·rio
+ * Permite armazenar um filme ou serie junto com uma avalia√ß√£o
+ * a avalia√ß√£o √© realizada pelo usu√°rio
  */
 public class AvaliacaoStream {
-    private Stream stream;
+    private StreamAvaliavel stream;
     private double avaliacao;
 
     /**
      * Construtor da classe Avaliacao
      * @param stream
      */
-    public AvaliacaoStream(Stream stream) {
+    public AvaliacaoStream(StreamAvaliavel stream) {
         this.stream = stream;
         this.avaliacao = -1;
     }
@@ -22,7 +23,7 @@ public class AvaliacaoStream {
      * 
      * @return Stream - stream
      */
-    public Stream getStream() {
+    public StreamAvaliavel getStream() {
         return stream;
     }
     
@@ -31,7 +32,7 @@ public class AvaliacaoStream {
      * 
      * @param stream
      */
-    public void setStream(Stream stream) {
+    public void setStream(StreamAvaliavel stream) {
         this.stream = stream;
     }
 
@@ -45,7 +46,7 @@ public class AvaliacaoStream {
     }
 
     /**
-     * Atribui uma avaliaÁ„o
+     * Atribui uma avalia√ß√£o
      * 
      * @param avaliacao
      */

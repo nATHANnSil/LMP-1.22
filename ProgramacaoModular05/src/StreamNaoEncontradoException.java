@@ -1,9 +1,10 @@
+package app;
 /**
- * ExceÁ„o: Stream n„o encontrado
+ * Exce√ß√£o: Stream n√£o encontrado
  */
 public class StreamNaoEncontradoException extends Exception {
     /**
-     * Esta exceÁ„o È lanÁada caso haja tentativa de procura de pelÌcula e a mesma n„o for encontrada.
+     * Esta exce√ß√£o √© lan√ßada caso haja tentativa de procura de pel√≠cula e a mesma n√£o for encontrada.
      * @param mensagem
      */
     public StreamNaoEncontradoException(String mensagem){
