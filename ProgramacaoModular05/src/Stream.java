@@ -1,6 +1,7 @@
+package app;
+
 import java.util.Random;
 
-//Classe Stream (pai de series filmes)
 public abstract class Stream {
     public static int contId = 0;
 
@@ -8,20 +9,24 @@ public abstract class Stream {
     private String nome;
     private String genero;
     private String idioma;
-    private int audiencia;
     private String dataLancamento;
-    private double avaliacao;
-    private int contAvaliacao;
 
-    //GENEROS
-    public static final String TERROR = "Terror";
-    public static final String COMEDIA = "Comedia";
-    public static final String ROMANCE = "Romance";
-    public static final String FICCAO = "Ficcao";
+    public static final String[] generos = {
+        "Comedia",
+        "Romance",
+        "AÃ§Ã£o",
+        "Anime",
+        "Aventura",
+        "DocumentÃ¡rio",
+        "Drama",
+        "Policial",
+        "Suspense"
+    };
 
-    //IDIOMAS
-    public static final String INGLES = "Ingles";
-    public static final String PORTUGUES = "Portugues";
+    public static final String[] idiomas = {
+        "Ingles",
+        "Portugues"
+    };
 
     /**
      * Construtor da classe Stream
@@ -31,18 +36,15 @@ public abstract class Stream {
      * @param idioma
      * @param dataLancamento
      */
-    public Stream(int id, String nome, String genero, String idioma, String dataLancamento) {
+    public Stream(int id, String nome, int genero, int idioma, String dataLancamento) {
         if(id > contId) {
             contId = id;
         }
         this.id = id;
         this.nome = nome;
-        this.genero = genero;
-        this.idioma = idioma;
+        this.genero = generos[genero];
+        this.idioma = idiomas[idioma];
         this.dataLancamento = dataLancamento;
-        this.audiencia = 0;
-        this.avaliacao = 0;
-        this.contAvaliacao = 0;
     }
 
     /**
@@ -59,26 +61,16 @@ public abstract class Stream {
         this.id = id;
         this.nome = nome;
         this.dataLancamento = dataLancamento;
-        this.audiencia = 0;
 
-        String[] generos = {TERROR, COMEDIA, FICCAO, ROMANCE};
         Random random = new java.util.Random();
         int generoAleatorio = random.nextInt(generos.length);
 
         this.genero = generos[generoAleatorio];
 
-        String[] idiomas = {PORTUGUES, INGLES};
         Random random1 = new java.util.Random();
         int idiomaAleatorio = random1.nextInt(idiomas.length);
 
         this.idioma = idiomas[idiomaAleatorio];
-    }
-
-    /**
-     * Registra audiência, funciona como visualizações
-     */
-    public void registrarAudiencia(){
-        setAudiencia((this.audiencia + 1));
     }
 
     /**
@@ -145,24 +137,7 @@ public abstract class Stream {
     }
 
     /**
-     * Retorna a audiência do Stream
-     * 
-     * @return int - audiencia
-     */
-    public int getAudiencia() {
-        return audiencia;
-    }
-
-    /**
-     * Atribui um valor a audiência do Stream
-     * @param audiencia
-     */
-    public void setAudiencia(int audiencia) {
-        this.audiencia = audiencia;
-    }
-
-    /**
-     * Retorna a data de lançamento do Stream
+     * Retorna a data de lanÃ§amento do Stream
      * 
      * @return String - dataLancamento
      */
@@ -180,29 +155,13 @@ public abstract class Stream {
     }
 
     /**
-     * Retorna a avaliacao media da midia
-     * 
-     * @return double - avaliacao
-     */
-    public double getAvaliacao() {
-        return avaliacao;
-    }
-
-    public void avaliar(double nota) {
-        double total = this.avaliacao * this.contAvaliacao;
-        contAvaliacao++;
-        double media = (nota + total)/this.contAvaliacao;
-        this.avaliacao = media;
-    }
-
-    /**
      * Retorna uma String com os valores dos atributos
      * 
      * @return String
      */
     @Override
     public String toString() {
-        String result = "Id: " + this.id + "\n" + "Nome: " + this.nome + "\n" + "Gênero: " + this.genero + "\n" + "Idioma: " + this.idioma + "\n" + "Audiência: " + this.audiencia + "\n" + "Data: " + this.dataLancamento + "\n" + "Avaliação: " + this.avaliacao + "\n";
+        String result = "Id: " + this.id + "\n" + "Nome: " + this.nome + "\n" + "GÃªnero: " + this.genero + "\n" + "Idioma: " + this.idioma + "\n" + "Data: " + this.dataLancamento + "\n";
         return result;
     }
 }

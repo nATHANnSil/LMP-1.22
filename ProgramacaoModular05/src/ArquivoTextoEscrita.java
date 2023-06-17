@@ -1,3 +1,5 @@
+package app;
+
 import java.io.*;
 
 public class ArquivoTextoEscrita {
@@ -7,7 +9,7 @@ public class ArquivoTextoEscrita {
 	ArquivoTextoEscrita(String nomeArquivo) {	
 		
 		try {
-			saida = new BufferedWriter(new FileWriter(nomeArquivo));
+			saida = new BufferedWriter(new FileWriter(nomeArquivo, true));
 		}
 		catch (FileNotFoundException excecao) {
 			System.out.println("Arquivo nao encontrado");

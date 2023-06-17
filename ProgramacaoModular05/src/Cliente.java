@@ -1,3 +1,5 @@
+package app;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -5,12 +7,12 @@ public class Cliente {
     private String nomeDeUsuario;
     private String login;
     private String senha;
-    List<Stream> listaParaVer;
+    List<StreamAvaliavel> listaParaVer;
     List<AvaliacaoStream> listaJaVistas;
 
     /**
-     * Construtor com nome de usuario, login e senha. As listas s„o inicializadas
-     * nesse mÈtodo
+     * Construtor com nome de usuario, login e senha. As listas s√£o inicializadas
+     * nesse m√©todo
      * 
      * @param nomeDeUsuario
      * @param login
@@ -20,7 +22,7 @@ public class Cliente {
         setNomeDeUsuario(nomeDeUsuario);
         setLogin(login);
         setSenha(senha);
-        this.listaParaVer = new ArrayList<Stream>();
+        this.listaParaVer = new ArrayList<StreamAvaliavel>();
         this.listaJaVistas = new ArrayList<AvaliacaoStream>();
     }
 
@@ -83,7 +85,7 @@ public class Cliente {
      * 
      * @param serieOuFilme
      */
-    public void adicionarNaListaParaVer(Stream serieOuFilme) throws PeliculaJaExistenteException {
+    public void adicionarNaListaParaVer(StreamAvaliavel serieOuFilme) throws PeliculaJaExistenteException {
         if (!this.listaParaVer.contains(serieOuFilme)) {
             this.listaParaVer.add(serieOuFilme);
         } else {
@@ -97,12 +99,12 @@ public class Cliente {
      * 
      * @param serieOuFilme
      */
-    public void adicionarNaListaJaVisto(Stream serieOuFilme) throws PeliculaJaExistenteException {
+    public void adicionarNaListaJaVisto(StreamAvaliavel serieOuFilme) throws PeliculaJaExistenteException {
         AvaliacaoStream novo = new AvaliacaoStream(serieOuFilme);
         if (!this.listaJaVistas.contains(novo)) {
             this.listaJaVistas.add(novo);
         } else {
-            throw new PeliculaJaExistenteException("J· visto.");
+            throw new PeliculaJaExistenteException("J√° visto.");
         }
 
     }
@@ -124,7 +126,7 @@ public class Cliente {
     }
 
     /**
-     * Filtra filmes e sÈries por genero
+     * Filtra filmes e s√©ries por genero
      * 
      * @param genero
      * @return List<Stream>
@@ -146,7 +148,7 @@ public class Cliente {
     }
 
     /**
-     * Filtra filmes e sÈries por idioma
+     * Filtra filmes e s√©ries por idioma
      * 
      * @param idioma
      * @return List<Stream>
@@ -168,12 +170,12 @@ public class Cliente {
     }
 
     /**
-     * Retorna a lista de filmes e sÈries j· vistas
+     * Retorna a lista de filmes e s√©ries j√° vistas
      * 
      * @return List<AvaliacaoStream>
      */
-    public List<Stream> mostrarListaJaVista() throws ListaVaziaException {
-        List<Stream> lista = new ArrayList<Stream>();
+    public List<StreamAvaliavel> mostrarListaJaVista() throws ListaVaziaException {
+        List<StreamAvaliavel> lista = new ArrayList<StreamAvaliavel>();
 
         for (AvaliacaoStream a : this.listaJaVistas) {
             lista.add(a.getStream());
@@ -187,11 +189,11 @@ public class Cliente {
     }
 
     /**
-     * Retorna a lista de filmes e sÈrie para assistir
+     * Retorna a lista de filmes e s√©rie para assistir
      * 
      * @return
      */
-    public List<Stream> mostrarListaParaAssistir() throws ListaVaziaException {
+    public List<StreamAvaliavel> mostrarListaParaAssistir() throws ListaVaziaException {
         if (listaParaVer.size() == 0) {
             throw new ListaVaziaException("Lista vazia.");
         } else {
@@ -201,7 +203,7 @@ public class Cliente {
     }
 
     /**
-     * Avalia um filme ou uma sÈrie ja vista
+     * Avalia um filme ou uma s√©rie ja vista
      * 
      * @param id
      * @param nota
@@ -215,20 +217,20 @@ public class Cliente {
                 if (!this.listaJaVistas.get(i).isAvaliado()) {
                     this.listaJaVistas.get(i).setAvaliacao(nota);
                 } else {
-                    throw new PeliculaJaAvaliadaException("Essa pelÌcula j· foi avaliada.");
+                    throw new PeliculaJaAvaliadaException("Essa pel√≠cula j√° foi avaliada.");
                 }
             }
         }
     }
 
     /**
-     * Registra a audiÍncia do cliente
+     * Registra a audi√™ncia do cliente
      * 
-     * Adiciona filme ou sÈrie na lista de assistidos
+     * Adiciona filme ou s√©rie na lista de assistidos
      * 
      * @param serieOuFilme
      */
-    public void registrarAudiencia(Stream serieOuFilme) {
+    public void registrarAudiencia(StreamAvaliavel serieOuFilme) {
 
         try {
             this.adicionarNaListaJaVisto(serieOuFilme);
@@ -240,7 +242,7 @@ public class Cliente {
     }
 
     /**
-     * Retorna uma lista com todas as sÈries ou filmes j· avaliados
+     * Retorna uma lista com todas as s√©ries ou filmes j√° avaliados
      * 
      * @return List<Stream> - lista
      */
